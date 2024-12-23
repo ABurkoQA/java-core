@@ -1,4 +1,4 @@
-package fourthTask;
+package javaCoreFirst.fourthTask;
 
 public class User {
     private long id;

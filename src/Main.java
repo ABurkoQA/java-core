@@ -1,7 +1,7 @@
-import firstTask.*;
-import fourthTask.*;
-import secondTask.*;
-import thirdTask.*;
+import javaCoreFirst.firstTask.*;
+import javaCoreFirst.secondTask.*;
+import javaCoreFirst.thirdTask.*;
+import javaCoreFirst.fourthTask.*;
 
 public class Main {
     public static void main(String[] args) {

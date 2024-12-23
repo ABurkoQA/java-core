@@ -1,10 +1,8 @@
-package firstTask;
+package javaCoreFirst.firstTask;
 
 import java.util.Arrays;
 
 public class SortedArray {
-
-    // O(n)
 
     public static boolean checkSortedArray(int size, String input) {
         String[] arraySplit = input.split(" ");

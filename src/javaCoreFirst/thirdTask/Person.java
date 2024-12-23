@@ -1,4 +1,4 @@
-package thirdTask;
+package javaCoreFirst.thirdTask;
 
 public class Person {
     String name;

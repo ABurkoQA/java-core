@@ -1,8 +1,6 @@
-package secondTask;
+package javaCoreFirst.secondTask;
 
 public class StringReverser {
-
-    // All O(n)
 
     public static String firstStringReverser(String input){
         if(input.isBlank())
