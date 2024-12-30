@@ -55,43 +55,22 @@ public class FirstPart {
         return lowerCaseSong.split("[^a-z]+");
     }
 
-    public static String[] uniqueMaker() {
-        String[] uniqueWords = new String[allWords.length];
-
-        int uniqueCount = 0;
-
-        for(String text : allWords){
-            boolean isUnique = true;
-
-            for(int i = 0; i < uniqueCount; i++){
-                if(uniqueWords[i].equals(text)){
-                    isUnique = false;
-                    break;
-                }
-            }
-
-            if(isUnique){
-                uniqueWords[uniqueCount++] = text;
-            }
-        }
-
-        String[] uniqueTotal = Arrays.copyOfRange(uniqueWords,0, uniqueCount);
-
-        return uniqueTotal;
-    }
-
     public static void wordCounter() {
-        String[] unqieWords = uniqueMaker();
+        Arrays.sort(allWords);
 
-        for(String word : unqieWords) {
-            int count = 0;
+        String word = allWords[0];
+        int count = 1;
 
-            for(int i = 0; i < allWords.length; i++) {
-                if(allWords[i].equals(word))
-                    count++;
+        for(int i = 1; i < allWords.length; i++) {
+            if(allWords[i].equals(word)) {
+                count++;
             }
 
-            System.out.println("Word - \"" + word + "\" times repeat - " + count);
+            if(!allWords[i].equals(word) || i == allWords.length - 1){
+                System.out.println("Word - \"" + word + "\" times repeat - " + count);
+                word = allWords[i];
+                count = 1;
+            }
         }
     }
 }

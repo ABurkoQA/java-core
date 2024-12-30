@@ -40,7 +40,7 @@ public class FifthPart {
 
             User user = (User) obj;
 
-            return age == user.age && name.equals(user.name);
+            return age == user.age && Objects.equals(name, user.name);
         }
 
         @Override

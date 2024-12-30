@@ -1,6 +1,7 @@
 package javaCoreTwo.collectionsAndArrays;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class ThirdPart {
     static String beatlesSubmarine = "In the town where I was born\n" +
@@ -43,69 +44,27 @@ public class ThirdPart {
             "We all live in a yellow submarine\n" +
             "Yellow submarine, yellow submarine";
 
-    final static String removeYellow = "yellow";
-    final static String removeSubmarine = "submarine";
+    private final static String REMOVE_YELLOW = "yellow";
+    private final static String REMOVE_SUBMARINE = "submarine";
 
-    static List<String> allWords = makingArrayOfWords();
+    static List<String> allWords = makingListOfWords();
 
     public static String removeSymbolToLower() {
         return beatlesSubmarine.toLowerCase()
                 .replace("\n"," ").replace(",","");
     }
 
-    public static List<String> makingArrayOfWords() {
+    public static List<String> makingListOfWords() {
         String lowerCaseSong = removeSymbolToLower();
 
         return Arrays.stream(lowerCaseSong.split("[^a-z]+")).toList();
     }
 
-    public static String[] uniqueMaker() {
-        String[] uniqueWords = new String[allWords.size()];
-
-        int uniqueCount = 0;
-
-        for(String text : allWords){
-            boolean isUnique = true;
-
-            for(int i = 0; i < uniqueCount; i++){
-                if(uniqueWords[i].equals(text)){
-                    isUnique = false;
-                    break;
-                }
-            }
-
-            if(isUnique){
-                uniqueWords[uniqueCount++] = text;
-            }
-        }
-
-        String[] uniqueTotal = Arrays.copyOfRange(uniqueWords,0, uniqueCount);
-
-        return uniqueTotal;
-    }
-
-    public static void wordCounter() {
-        String[] uniqueWords = uniqueMaker();
-
-        for(String word : uniqueWords) {
-            int count = 0;
-
-            for(int i = 0; i < allWords.size(); i++) {
-                if(allWords.get(i).equals(word))
-                    count++;
-            }
-
-            System.out.println("Word - \"" + word + "\" times repeat - " + count);
-        }
-    }
-
     public static void removeWords(){
-        List<String> updateList = new ArrayList<>(allWords);
+        List updatedList = allWords.stream()
+                .filter(word -> !word.equals(REMOVE_YELLOW) && !word.equals(REMOVE_SUBMARINE))
+                .collect(Collectors.toList());
 
-        updateList.removeAll(Collections.singletonList(removeYellow));
-
-        updateList.removeAll(Collections.singletonList(removeSubmarine));
-
-        System.out.println(String.join(" ", updateList));
+        System.out.println(String.join(" ", updatedList));
     }
 }

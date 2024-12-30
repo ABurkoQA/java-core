@@ -9,7 +9,8 @@ public class Main {
 
         // Part 1
 
-        //FirstPart.wordCounter();
+//        FirstPart.wordCounter();
+//        System.out.println();
 
         // Part 2
 
@@ -22,10 +23,10 @@ public class Main {
 
         //Part 4
 
-//        FourthPart.saveStringToFile();
-//        String test = FourthPart.readFromFile();
-//
-//        boolean testBool = FourthPart.findLine("man more of them live next door");
+        FourthPart.saveStringToFile();
+        String testRead = FourthPart.readFromFile();
+
+        System.out.println(FourthPart.findLine("liVe iN a yElow submarine"));
 
         // Regex
 

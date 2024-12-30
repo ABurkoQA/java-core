@@ -75,8 +75,8 @@ public class SecondPart {
         List<String> sortedByLength = uniqueWord.stream()
                 .sorted(Comparator.comparing(String::length)).toList();
 
-        for(String text : sortedByLength){
-            System.out.print(text + " ");
+        for(String word : sortedByLength){
+            System.out.print(word + " ");
         }
     }
 }

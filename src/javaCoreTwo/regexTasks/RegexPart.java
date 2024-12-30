@@ -5,14 +5,14 @@ import java.util.regex.Pattern;
 
 public class RegexPart {
 
-    final static String pattern = "orderUUID";
-    final static String emailPattern = "[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}";
-    final static String ordersPattern = "\\[(\\d+)\\]";
+    private final static String PATTERN = "orderUUID";
+    private final static String EMAIL_PATTERN = "[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}";
+    private final static String ORDERS_PATTERN = "\\[(\\d+)\\]";
 
     // Part 1
 
     public static boolean checkForPattern(String input) {
-        return input.contains(pattern);
+        return input.contains(PATTERN);
     }
 
     // Part 2
@@ -20,10 +20,10 @@ public class RegexPart {
     public static String findPattern(String input) {
         String result = "";
 
-        int index = input.indexOf(pattern);
+        int index = input.indexOf(PATTERN);
 
         if(index != -1)
-            result = input.substring(index, index + pattern.length());
+            result = input.substring(index, index + PATTERN.length());
 
         return result;
     }
@@ -31,8 +31,8 @@ public class RegexPart {
     // Part 3
 
     public static String findEmail(String input) {
-        Pattern patt = Pattern.compile(emailPattern);
-        Matcher matcher = patt.matcher(input);
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        Matcher matcher = pattern.matcher(input);
 
         if(matcher.find()) {
             return matcher.group();
@@ -44,7 +44,7 @@ public class RegexPart {
     // Part 4
 
     public static int findOrders(String input) {
-        Pattern patt = Pattern.compile(ordersPattern);
+        Pattern patt = Pattern.compile(ORDERS_PATTERN);
         Matcher matcher = patt.matcher(input);
 
         if(matcher.find())

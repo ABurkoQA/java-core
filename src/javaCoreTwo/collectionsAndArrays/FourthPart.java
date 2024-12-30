@@ -45,7 +45,7 @@ public class FourthPart {
             "We all live in a yellow submarine\n" +
             "Yellow submarine, yellow submarine";
 
-    static Path path = Paths.get(System.getProperty("user.home"),"Desktop", "beatles.txt");
+    static Path path = Paths.get("beatles.txt");
 
     public static void saveStringToFile() {
         try {
@@ -71,16 +71,14 @@ public class FourthPart {
         return result;
     }
 
-    // In description it doesn't say that search is case sensitive
-
     public static boolean findLine(String input) {
-        String song = beatlesSubmarine.toLowerCase();
+        String song = readFromFile().toLowerCase();
 
         try {
             if (song.contains(input.toLowerCase()))
                 return true;
 
-            throw new BeatlesException("Something wrong");
+            throw new BeatlesException("The input string was not found in the song");
         } catch (BeatlesException e){
             System.out.println(e.getMessage());
         }
